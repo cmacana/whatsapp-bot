@@ -6,28 +6,33 @@ url1 = 'https://api.chat-api.com/instance409704/sendMessage?token=krz6j7h0urdw4q
 
 url2 = 'https://api.chat-api.com/instance409704/sendFile?token=krz6j7h0urdw4qj1'
 
-with open('E:\\whatsapp-bot\\data\\super_civico.txt') as f:
+with open('C:/Users/steph/Documents/whatsapp-bot/data/super_civico.txt') as f:
     text = f.readlines()
 
-df = pandas.read_csv("E:\\whatsapp-bot\\data\\contactos_prueba.csv")
-#df = pandas.read_csv("E:\\whatsapp-bot\\data\\contacto_de_prueba.csv")
+# df = pandas.read_csv("C:/Users/steph/Documents/whatsapp-bot/data/contactos_prueba.csv")
+# df = pandas.read_csv("C:/Users/steph/Documents/whatsapp-bot/data/contacto_de_prueba.csv")
+df = pandas.read_csv("C:/Users/steph/Documents/whatsapp-bot/data/contactos-cultura.csv")
+
+link = f'{"https://chat.whatsapp.com/Bhh2AzCVhfYHy6XIyGCuwy"}'
 
 for index, contact in df.iterrows():
     nombre = contact['nombre']
     phone = contact['movil']
+
     message_body = {
         "phone": phone,
-        "body": f'Hola {nombre}. Soy Jorge Torres del equipo de *💚🌻 Mockus al Congreso 🌻💚*. '
-                f'Hace unos dias nos encontramos en la calle '
-                f'y nos comentaste que querias recuperar la *🌻cultura ciudadana🥕* en Bogotá. '
-                f'Hemos preparado el siguiente video para presentarte nuestra propuesta para recuperar '
-                f'la cultura ciudadana con acciones desde el Congreso de la República . \n \n'
+        "body": f'Hola {nombre}, soy Jorge Torres del *Equipo de Mockus* al *Congreso de la República* 🥕. '
+                f'En estos días nos encontramos en la calle '
+                f'y nos comentaste que quieres que se recupere la *Cultura Ciudadana* en *Bogotá*. '
+                f'Hemos realizado el siguiente video pedagógico para presentarte nuestra propuesta '
+                f'para el Congreso. \n \n'
                 f'Te invitamos a ver el *video* y a respaldarme '
-                f'votando a la *Cámara por Bogotá 🌻 Verde110* 🥕.'
+                f'votando a la *Cámara por Bogotá* con el *número 110* del *Partido Alianza Verde*🌻.'
                 f'\n\n'
-                f'PD: Si quieres seguir en contacto, te agradezco me *agregues* dentro de tus contactos '
-                f'y repondas con la palabra *CONTACTO*. '
-                f'Si por el contrario no deseas  seguir recibiendo mensajes envía la palabra *BAJA*'}
+                f'*#Verde110* 🌻🥕'
+                f'\n\n'
+                f'PD: Si quieres seguir en contacto, te agradezco me agregues dentro de tus contactos. '
+                f'Si por el contrario no deseas seguir recibiendo mensajes envía la palabra *BAJA*. '}
 
     photo_body = {
         "phone": phone,
